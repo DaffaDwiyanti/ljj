@@ -19,7 +19,7 @@ Route::get('/join/{id}', 'WelcomeController@join');
 Route::get('/detail/{id}', 'DetailMateriController@index');
 Route::get('/daftar', function(){
     if (Auth::user()) {
-        return redirect('/materis');
+        return redirect('/kelas');
     }
     return redirect('/login');
     

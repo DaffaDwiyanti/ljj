@@ -8,14 +8,76 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
     </head>
     <body>
+<nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="#">LJJ Latihan Jarak Jauh</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Mata Diklat
+        </a>
+        <div class="dropdown-menu"  style="background-color: #e3f2fd;" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner" height="200px">
+  <center>
+    <div class="carousel-item active">
+      <img  style="height: 230px;" src="http://www.ljj-kesehatan.kemkes.go.id/pluginfile.php/1/theme_essential/slide4image/1554105496/thumsup.png" alt="Los Angeles">
+    </div>
+    <div class="carousel-item">
+      <img  style="height: 230px;" src="http://www.ljj-kesehatan.kemkes.go.id/pluginfile.php/1/theme_essential/slide1image/1554105496/tampak-depan-gedung1.png" alt="Chicago">
+    </div>
+    <div class="carousel-item">
+      <img style="height: 230px;" src="http://www.ljj-kesehatan.kemkes.go.id/pluginfile.php/1/theme_essential/slide2image/1554105496/acha-1-of-1-6.png" alt="New York">
+    </div>
+  </div>
+  </center>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+</div>
+
+<section class="py-5  bg-light">
+  <div class="container">
+    <h1 class="display-4">Selamat Datang</h1>
+    <p class="lead"> Di Pelatihan Jarak Jauh Kesehatan</p>
+  </div>
+</section>
+
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Selamat Datang</h2>
-                </div>
-            </div>
+        
 @foreach($kelas as $k)
             <div class="row">
                 <div class="col-lg-3">
