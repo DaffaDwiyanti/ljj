@@ -17,17 +17,9 @@ Route::get('/','WelcomeController@index');
 Auth::routes();
 Route::get('/join/{id}', 'WelcomeController@join');
 Route::get('/detail/{id}', 'DetailMateriController@index');
-Route::get('/daftar', function(){
-    if (Auth::user()) {
-        return redirect('/daftarkelas');
-    }
-    return redirect('/login');
-    
-});
+Route::get('/daftar', 'daftarkController@index');
 
-Route::get('daftarkelas', function(){
-    return view('daftarkelas');
-});
+Route::get('daftarkelas', 'daftarkController@tambahk');
 
 Route::get('/home', 'HomeController@index');
 

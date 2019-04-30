@@ -19,7 +19,13 @@
 <!-- ID Kelas Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('id_kelas', 'ID Kelas:') !!}
-    {!! Form::text('id_kelas', null, ['class' => 'form-control']) !!}
+
+    <select class="form-control" name="id_kelas">
+    @foreach($kelas as $k)
+        <option value="{{$k->id}}">{{$k->nama_kelas}}</option>
+    @endforeach
+    </select>
+    <!-- {!! Form::text('id_kelas', null, ['class' => 'form-control']) !!} -->
 </div>
 
 

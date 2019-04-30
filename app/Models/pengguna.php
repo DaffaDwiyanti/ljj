@@ -32,9 +32,8 @@ class pengguna extends Model
     public $fillable = [
         'userid',
         'nama',
-        'username',
-        'password',
-        'role'
+        'id_kelas',
+        'tanggal'
     ];
 
     /**
@@ -46,9 +45,8 @@ class pengguna extends Model
         'id' => 'integer',
         'userid' => 'string',
         'nama' => 'string',
-        'username' => 'string',
-        'password' => 'string',
-        'role' => 'string'
+        'id_kelas' => 'string',
+        'tanggal' => 'date'
     ];
 
     /**
@@ -58,10 +56,7 @@ class pengguna extends Model
      */
     public static $rules = [
         'userid' => 'required',
-        'nama' => 'required',
-        'username' => 'required',
-        'password' => 'required',
-        'role' => 'required'
+        'nama' => 'required'
     ];
 
     

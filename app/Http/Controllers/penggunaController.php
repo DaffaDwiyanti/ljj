@@ -7,6 +7,8 @@ use App\Http\Requests\UpdatepenggunaRequest;
 use App\Repositories\penggunaRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\kelas;
+use Auth;
 use Flash;
 use Response;
 
@@ -42,7 +44,8 @@ class penggunaController extends AppBaseController
      */
     public function create()
     {
-        return view('penggunas.create');
+        $kelas = kelas::all();
+        return view('penggunas.create', compact('kelas'));
 
     }
 
@@ -61,7 +64,14 @@ class penggunaController extends AppBaseController
 
         Flash::success('Pengguna saved successfully.');
 
+        if(Auth::user()->role_id==3){
+            return redirect('/');
+         }
+         else{
+            // return view('/home');
+
         return redirect(route('penggunas.index'));
+         }
     }
 
     /**
@@ -95,13 +105,14 @@ class penggunaController extends AppBaseController
     {
         $pengguna = $this->penggunaRepository->find($id);
 
+        $kelas = kelas::all();
         if (empty($pengguna)) {
             Flash::error('Pengguna not found');
 
             return redirect(route('penggunas.index'));
         }
 
-        return view('penggunas.edit')->with('pengguna', $pengguna);
+        return view('penggunas.edit', compact('kelas'))->with('pengguna', $pengguna);
     }
 
     /**

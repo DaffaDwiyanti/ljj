@@ -18,21 +18,16 @@
 
 <!-- Username Field -->
 <div class="form-group">
-    {!! Form::label('username', 'Username:') !!}
-    <p>{!! $pengguna->username !!}</p>
+    {!! Form::label('tanggal', 'Tanggal:') !!}
+    <p>{!! $pengguna->tanggal !!}</p>
 </div>
 
 <!-- Password Field -->
 <div class="form-group">
-    {!! Form::label('password', 'Password:') !!}
-    <p>{!! $pengguna->password !!}</p>
+    {!! Form::label('id_kelas', 'ID Kelas:') !!}
+    <p>{!! $pengguna->id_kelas !!}</p>
 </div>
 
-<!-- Role Field -->
-<div class="form-group">
-    {!! Form::label('role', 'Role:') !!}
-    <p>{!! $pengguna->role !!}</p>
-</div>
 
 <!-- Created At Field -->
 <div class="form-group">

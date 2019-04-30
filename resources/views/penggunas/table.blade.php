@@ -3,10 +3,9 @@
         <tr>
             <th>Userid</th>
         <th>Nama</th>
-        <th>Username</th>
-        <th>Password</th>
-        <th>Role</th>
-            <th colspan="3">Action</th>
+        <th>tanggal</th>
+        <th>ID Kelas</th>
+        <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -14,9 +13,8 @@
         <tr>
             <td>{!! $pengguna->userid !!}</td>
             <td>{!! $pengguna->nama !!}</td>
-            <td>{!! $pengguna->username !!}</td>
-            <td>{!! $pengguna->password !!}</td>
-            <td>{!! $pengguna->role !!}</td>
+            <td>{!! $pengguna->tanggal !!}</td>
+            <td>{!! $pengguna->id_kelas !!}</td>
             <td>
                 {!! Form::open(['route' => ['penggunas.destroy', $pengguna->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
