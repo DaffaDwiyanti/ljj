@@ -11,11 +11,33 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','WelcomeController@index');
 
 
 Auth::routes();
+Route::get('/join/{id}', 'WelcomeController@join');
+Route::get('/detail/{id}', 'DetailMateriController@index');
+Route::get('/daftar', function(){
+    if (Auth::user()) {
+        return redirect('/materis');
+    }
+    return redirect('/login');
+    
+});
 
 Route::get('/home', 'HomeController@index');
+
+Route::resource('kelas', 'kelasController');
+
+Route::resource('penggunas', 'penggunaController');
+
+Route::resource('soals', 'soalController');
+
+Route::resource('nilais', 'nilaiController');
+
+Route::resource('materis', 'materiController');
+
+Route::resource('penugasans', 'penugasanController');
+
+Route::resource('materidetails', 'materidetailController');
+
