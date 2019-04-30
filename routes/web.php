@@ -19,10 +19,14 @@ Route::get('/join/{id}', 'WelcomeController@join');
 Route::get('/detail/{id}', 'DetailMateriController@index');
 Route::get('/daftar', function(){
     if (Auth::user()) {
-        return redirect('/kelas');
+        return redirect('/daftarkelas');
     }
     return redirect('/login');
     
+});
+
+Route::get('daftarkelas', function(){
+    return view('daftarkelas');
 });
 
 Route::get('/home', 'HomeController@index');

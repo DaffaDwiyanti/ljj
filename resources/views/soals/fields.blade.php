@@ -34,9 +34,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('jenis_soal', 'Jenis Soal:') !!}
     <select class="form-control" name="jenis_soal">
-    
-        <option value="{{$soal->jenis_soal}}" disabled selected='selected'>{{$soal->jenis_soal}}</option>
-        <option value="MultipleChoice">Multiple Choice</option>
+    <option value="MultipleChoice">Multiple Choice</option>
         <option value="Quiz">Quiz</option>
         <option value="PreTest">PreTest</option>
         <option value="PostTest">PostTest</option>

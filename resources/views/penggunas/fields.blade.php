@@ -7,26 +7,21 @@
 <!-- Nama Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nama', 'Nama:') !!}
-    {!! Form::text('nama', null, ['class' => 'form-control']) !!}
+    {!! Form::text('nama', null , ['class' => 'form-control']) !!}
 </div>
 
-<!-- Username Field -->
+<!-- Tanggal Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('username', 'Username:') !!}
-    {!! Form::text('username', null, ['class' => 'form-control']) !!}
+    {!! Form::label('tanggal', 'Tanggal:') !!}
+    {!! Form::text('tanggal', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Password Field -->
+<!-- ID Kelas Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('password', 'Password:') !!}
-    {!! Form::text('password', null, ['class' => 'form-control']) !!}
+    {!! Form::label('id_kelas', 'ID Kelas:') !!}
+    {!! Form::text('id_kelas', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Role Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('role', 'Role:') !!}
-    {!! Form::text('role', null, ['class' => 'form-control']) !!}
-</div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
