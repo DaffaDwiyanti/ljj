@@ -62,7 +62,7 @@ header .overlay {
     <div class="d-flex h-100 text-center align-items-center">
       <div class="w-100 text-white">
           @foreach($materi as $m)
-        <h3 class="display-6"  style="margin-top:390px;">{{$m->materi}}</h1>
+        <h3 class="display-6"  style="margin-top:390px;">{{$m->subbab}}</h1>
         @endforeach
       </div>
     </div>

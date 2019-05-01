@@ -141,14 +141,14 @@
   <thead>
     <tr>
       <th scope="col">Materi</th>
-      <th scope="col">Logo</th>
+      <th scope="col">Referensi</th>
     </tr>
   </thead>
   <tbody>
-      @foreach($materi as $k)
+      @foreach($submateri as $k)
     <tr>
-      <th scope="row" ><a href="/submateri/{{$k->id}}">{{$k->materi}}</a></th>
-      <td>{{$k->logo}}</td>
+      <th scope="row" ><a href="/materi/{{$k->id}}">{{$k->subbab}}</a></th>
+      <td>{{$k->referensi}}</td>
     </tr>
     @endforeach
   </tbody>

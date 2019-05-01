@@ -34,15 +34,30 @@ class kpesertaController extends Controller
             return "anda belum melakukan pretest";
         }
     }
+    public function submateri($id){
+        $progres = DB::table('progres')->where('user_id', Auth::user()->id)->get(['id_materidetail']);
+        // return $progres;
+        if($progres != 'pretest'){
+            $submateri = DB::table('materidetails')->where('id_materi',$id)->get();
+            DB::table('progres')->where( 'user_id', Auth::user()->id)->update(['id_materidetail'=>$id]);
+            return view('submateri', compact('submateri'));
+        }elseif($progres != ''){
+            $submateri = DB::table('materidetails')->where('id_materi',$id)->get();
+            DB::table('progres')->where( 'user_id', Auth::user()->id)->update(['id_materidetail'=>$id]);
+            return view('submateri', compact('submateri'));
+        }else{
+            return "anda belum melakukan pretest";
+        }
+    }
     public function materidetail($id){
 
         $progres = DB::table('progres')->where('user_id', Auth::user()->id)->get(['id_materidetail']);
         // return $progres;
         if($progres != $id ){
         $mytime = Carbon::now();
-        DB::table('logs')->insert(['started_time'=> $mytime->toDateTimeString(),'activity'=>"Mulai Materi $id", 'user_id'=>Auth::user()->id]);
+        DB::table('logs')->insert(['started_time'=> $mytime->toDateTimeString(),'activity'=>"Mulai SUBMateri $id", 'user_id'=>Auth::user()->id]);
         
-        $materi = DB::table('materis')->where('id',$id)->get();
+        $materi = DB::table('materidetails')->where('id',$id)->get();
         return view('materid', compact('materi'));
         }else{
         }

@@ -19,6 +19,8 @@ Route::get('/selesai/{id}', 'kpesertaController@materidetailselesai');
 
 Route::get('/materi/{id}', 'kpesertaController@materidetail');
 Route::get('/materip/{id}', 'kpesertaController@materi');
+Route::get('/submateri/{id}', 'kpesertaController@submateri');
+
 Route::get('/peserta', 'pesertaController@index');
 Route::get('/kelaspeserta','kpesertaController@index');
 Auth::routes();
