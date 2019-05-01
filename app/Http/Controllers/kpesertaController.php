@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
+use Carbon\Carbon;
 
 class kpesertaController extends Controller
 {
@@ -15,11 +16,43 @@ class kpesertaController extends Controller
     }
 
     public function materi($id){
-        $materi = DB::table('materis')->where('id_kelas',$id)->get();
-        return view('materip', compact('materi'));
+        $progres = DB::table('progres')->where('user_id', Auth::user()->id)->get(['id_materidetail']);
+        // return $progres;
+        if($progres != 'pretest'){
+            $materi = DB::table('materis')->where('id_kelas',$id)->get();
+            DB::table('progres')
+            ->where( 'user_id', Auth::user()->id)
+            ->update(['id_materidetail'=>'1']);
+            return view('materip', compact('materi'));
+        }elseif($progres != ''){
+            $materi = DB::table('materis')->where('id_kelas',$id)->get();
+            DB::table('progres')
+            ->where( 'user_id', Auth::user()->id)
+            ->update(['id_materidetail'=>'1']);
+            return view('materip', compact('materi'));
+        }else{
+            return "anda belum melakukan pretest";
+        }
     }
     public function materidetail($id){
+
+        $progres = DB::table('progres')->where('user_id', Auth::user()->id)->get(['id_materidetail']);
+        // return $progres;
+        if($progres != $id ){
+        $mytime = Carbon::now();
+        DB::table('logs')->insert(['started_time'=> $mytime->toDateTimeString(),'activity'=>"Mulai Materi $id", 'user_id'=>Auth::user()->id]);
+        
         $materi = DB::table('materis')->where('id',$id)->get();
         return view('materid', compact('materi'));
+        }else{
+        }
+    }
+
+    public function materidetailselesai($id){
+        $mytime = Carbon::now();
+        DB::table('logs')->insert(['started_time'=>$mytime->toDateTimeString(), 'activity'=>"Selesai Materi $id", 'user_id'=>Auth::user()->id]);
+        DB::table('progres')->where('user_id', Auth::user()->id)->update(['id_materidetail'=>$id]);
+
+        return redirect('/kelaspeserta');
     }
 }

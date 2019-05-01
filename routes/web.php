@@ -12,8 +12,13 @@
 */
 
 Route::get('/','WelcomeController@index');
+Route::get('/konfirmasi/{id}', 'pendaftaranController@index');
+Route::get('/pretest', 'pendaftaranController@pretest');
+Route::get('/finish', 'pendaftaranController@stoppretest');
+Route::get('/selesai/{id}', 'kpesertaController@materidetailselesai');
+
 Route::get('/materi/{id}', 'kpesertaController@materidetail');
-Route::get('materip/{id}', 'kpesertaController@materi');
+Route::get('/materip/{id}', 'kpesertaController@materi');
 Route::get('/peserta', 'pesertaController@index');
 Route::get('/kelaspeserta','kpesertaController@index');
 Auth::routes();
