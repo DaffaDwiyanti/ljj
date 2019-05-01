@@ -12,8 +12,10 @@
 */
 
 Route::get('/','WelcomeController@index');
-
-
+Route::get('/materi/{id}', 'kpesertaController@materidetail');
+Route::get('materip/{id}', 'kpesertaController@materi');
+Route::get('/peserta', 'pesertaController@index');
+Route::get('/kelaspeserta','kpesertaController@index');
 Auth::routes();
 Route::get('/join/{id}', 'WelcomeController@join');
 Route::get('/detail/{id}', 'DetailMateriController@index');

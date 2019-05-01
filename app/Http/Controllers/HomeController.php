@@ -29,7 +29,7 @@ class HomeController extends Controller
             return redirect('/nilais');
          }
         elseif(Auth::user()->role_id==3){
-            return redirect('/penggunas/create');
+            return redirect('/peserta');
          }
          else{
             return view('/home');
