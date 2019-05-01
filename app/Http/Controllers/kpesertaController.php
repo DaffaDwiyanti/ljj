@@ -70,4 +70,24 @@ class kpesertaController extends Controller
 
         return redirect('/kelaspeserta');
     }
+
+    public function quiz(){
+        DB::table('logs')->insert(['started_time'=>$mytime->toDateTimeString(), 'activity'=>"Mulai Quiz $id", 'user_id'=>Auth::user()->id]);
+        return view('quiz');
+    }
+    public function penugasan(){
+        DB::table('logs')->insert(['started_time'=>$mytime->toDateTimeString(), 'activity'=>"Mulai Quiz $id", 'user_id'=>Auth::user()->id]);
+        return view('penugasan');
+
+    }
+    public function kompre(){
+        DB::table('logs')->insert(['started_time'=>$mytime->toDateTimeString(), 'activity'=>"Mulai Kompre $id", 'user_id'=>Auth::user()->id]);
+        return view('kompre');
+
+    }
+    public function posttest(){
+        DB::table('logs')->insert(['started_time'=>$mytime->toDateTimeString(), 'activity'=>"Mulai Posttest $id", 'user_id'=>Auth::user()->id]);
+        return view('posttest');
+
+    }
 }

@@ -17,6 +17,18 @@ Route::get('/pretest', 'pendaftaranController@pretest');
 Route::get('/finish', 'pendaftaranController@stoppretest');
 Route::get('/selesai/{id}', 'kpesertaController@materidetailselesai');
 
+
+Route::get('/finish', 'pendaftaranController@stoppretest');
+Route::get('/finishq', 'pendaftaranController@stopquiz');
+Route::get('/finishp', 'pendaftaranController@stoppenugasan');
+Route::get('/finishk', 'pendaftaranController@stopkompre');
+Route::get('/finishps', 'pendaftaranController@stopposttest');
+
+Route::get('/kompre','kpesertaController@kompre');
+Route::get('/quiz','kpesertaController@quiz');
+Route::get('/penugasan','kpesertaController@penugasan');
+Route::get('/posttest', 'kpesertaController@posttest');
+
 Route::get('/materi/{id}', 'kpesertaController@materidetail');
 Route::get('/materip/{id}', 'kpesertaController@materi');
 Route::get('/submateri/{id}', 'kpesertaController@submateri');

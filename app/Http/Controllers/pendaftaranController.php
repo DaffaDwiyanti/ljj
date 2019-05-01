@@ -31,4 +31,34 @@ class pendaftaranController extends Controller
         return redirect('/kelaspeserta');
         
     }
+
+    public function stopquiz(){
+        $mytime = Carbon::now();
+        DB::table('logs')->insert(['started_time'=> $mytime->toDateTimeString(), 'activity'=>'Selesai Quiz', 'user_id'=> Auth::user()->id]);
+
+        return redirect('/kelaspeserta');
+        
+    }
+    public function stopkompre(){
+        $mytime = Carbon::now();
+        DB::table('logs')->insert(['started_time'=> $mytime->toDateTimeString(), 'activity'=>'Selesai Kompre', 'user_id'=> Auth::user()->id]);
+
+        return redirect('/kelaspeserta');
+        
+    }
+
+    public function stoppenugasan(){
+        $mytime = Carbon::now();
+        DB::table('logs')->insert(['started_time'=> $mytime->toDateTimeString(), 'activity'=>'Selesai Penugasan', 'user_id'=> Auth::user()->id]);
+
+        return redirect('/kelaspeserta');
+        
+    }
+    public function stopposttest(){
+        $mytime = Carbon::now();
+        DB::table('logs')->insert(['started_time'=> $mytime->toDateTimeString(), 'activity'=>'Selesai Posttest', 'user_id'=> Auth::user()->id]);
+
+        return redirect('/kelaspeserta');
+        
+    }
 }
