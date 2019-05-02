@@ -24,10 +24,10 @@ Route::get('/finishp', 'pendaftaranController@stoppenugasan');
 Route::get('/finishk', 'pendaftaranController@stopkompre');
 Route::get('/finishps', 'pendaftaranController@stopposttest');
 
-Route::get('/kompre','kpesertaController@kompre');
-Route::get('/quiz','kpesertaController@quiz');
+Route::get('/kompre/{id}','kpesertaController@kompre');
+Route::get('/quiz/{id}','kpesertaController@quiz');
 Route::get('/penugasan','kpesertaController@penugasan');
-Route::get('/posttest', 'kpesertaController@posttest');
+Route::get('/posttest/{id}', 'kpesertaController@posttest');
 
 Route::get('/materi/{id}', 'kpesertaController@materidetail');
 Route::get('/materip/{id}', 'kpesertaController@materi');

@@ -68,7 +68,13 @@ class pendaftaranController extends Controller
     public function stopposttest(){
         $mytime = Carbon::now();
         DB::table('logs')->insert(['started_time'=> $mytime->toDateTimeString(), 'activity'=>'Selesai Posttest', 'user_id'=> Auth::user()->id]);
-
+        
+        $idprogres = DB::table('progres')->orderBy('id','desc')->first();
+        $user =  Auth::user()['id'];
+        DB::table('progres')
+        ->where('id', $idprogres->id)
+        ->where('user_id', $user)
+        ->update([ 'id_materidetail'=>400]);
         return redirect('/kelaspeserta');
         
     }

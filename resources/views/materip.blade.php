@@ -142,6 +142,7 @@
     <tr>
       <th scope="col">Materi</th>
       <th scope="col">Logo</th>
+      <th scope="col">Aksi</th>
     </tr>
   </thead>
   <tbody>
@@ -149,18 +150,15 @@
     <tr>
       <th scope="row" ><a href="/submateri/{{$k->id}}">{{$k->materi}}</a></th>
       <td>{{$k->logo}}</td>
+      <td>
+
+  <a href="/quiz/{{$k->id}}" type="button" class="btn btn-primary">Quiz</a>
+    
+      </td>
     </tr>
     @endforeach
   </tbody>
 
-<div class="container" style="margin-left:250px;">
-<div class="box box-primary">
-  <div class="box-body">
-  <a href="/quiz" type="button" class="btn btn-primary">Quiz</a>
-    
-  </div>
-</div>
-</div>
 </table>
 </div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -153,9 +153,9 @@
       <td>
 <div class="box box-primary">
   <div class="box-body">
-  <a href="/kompre" type="button" class="btn btn-primary">Kompre</a> 
+  <a href="/kompre/{{$k->id_kelas}}" type="button" class="btn btn-primary">Kompre</a> 
 
-  <a href="/posttest" type="button" class="btn btn-primary">Post Test</a>
+  <a href="/posttest/{{$k->id_kelas}}" type="button" class="btn btn-primary">Post Test</a>
     
   </div>
 </div></td>

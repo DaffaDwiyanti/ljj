@@ -21,7 +21,7 @@ class kpesertaController extends Controller
         // return $progres;
         if( $id <= $idprogres->id_materi){
             
-        if($idprogres->id_materidetail == 100){
+        if($idprogres->id_materidetail < 100){
             $materi = DB::table('materis')->where('id_kelas',$id)->get();
             DB::table('progres')
             ->where( 'id', $idprogres->id)
@@ -69,23 +69,46 @@ class kpesertaController extends Controller
         return redirect('/kelaspeserta');
     }
 
-    public function quiz(){
-        DB::table('logs')->insert(['started_time'=>$mytime->toDateTimeString(), 'activity'=>"Mulai Quiz $id", 'user_id'=>Auth::user()->id]);
-        return view('quiz');
+    public function quiz($id){
+        $progres = DB::table('progres')->where('user_id', Auth::user()->id)->orderBy('id','desc')->first();
+        $totalsub = DB::table('materidetails')->where('id_materi',$id)->count();
+        if($totalsub <= $progres->id_materidetail){
+            $mytime = Carbon::now();
+            DB::table('logs')->insert(['started_time'=>$mytime->toDateTimeString(), 'activity'=>"Mulai Quiz $id", 'user_id'=>Auth::user()->id]);
+            return view('quiz');
+        }else{
+            return "Anda belum menyelesaikan semua Submateri";
+        }
     }
     public function penugasan(){
+        $mytime = Carbon::now();
         DB::table('logs')->insert(['started_time'=>$mytime->toDateTimeString(), 'activity'=>"Mulai Quiz $id", 'user_id'=>Auth::user()->id]);
         return view('penugasan');
+    }
+    public function kompre($id){
+        
+        $progres = DB::table('progres')->where('user_id', Auth::user()->id)->orderBy('id','desc')->first();
+        $totalsub = DB::table('materis')->where('id_kelas',$id)->count();
+        if( $progres->id_materi > 400){
+            $mytime = Carbon::now();
+            DB::table('logs')->insert(['started_time'=>$mytime->toDateTimeString(), 'activity'=>"Mulai Kompre $id", 'user_id'=>Auth::user()->id]);
+            return view('kompre');
+        }else{
+            return "Anda belum menyelesaikan Posttest";
+        }
 
     }
-    public function kompre(){
-        DB::table('logs')->insert(['started_time'=>$mytime->toDateTimeString(), 'activity'=>"Mulai Kompre $id", 'user_id'=>Auth::user()->id]);
-        return view('kompre');
+    public function posttest($id){
 
-    }
-    public function posttest(){
+        $progres = DB::table('progres')->where('user_id', Auth::user()->id)->orderBy('id','desc')->first();
+        $totalsub = DB::table('materis')->where('id_kelas',$id)->count();
+        if($totalsub < $progres->id_materi){
+        $mytime = Carbon::now();
         DB::table('logs')->insert(['started_time'=>$mytime->toDateTimeString(), 'activity'=>"Mulai Posttest $id", 'user_id'=>Auth::user()->id]);
         return view('posttest');
+    }else{
+        return "Anda belum menyelesaikan semua Materi";
+    }
 
     }
 }
