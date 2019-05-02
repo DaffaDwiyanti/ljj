@@ -142,6 +142,7 @@
     <tr>
       <th scope="col">Mata Diklat</th>
       <th scope="col">Tanggal Daftar</th>
+      <th scope="col">Aksi</th>
     </tr>
   </thead>
   <tbody>
@@ -149,12 +150,7 @@
     <tr>
       <th scope="row" ><a href="/materip/{{$k->id_kelas}}">{{$k->id_kelas}}</a></th>
       <td>{{$k->tanggal}}</td>
-      
-</tr>
-    @endforeach
-  </tbody>
-
-<div class="container" style="margin-left:250px;">
+      <td>
 <div class="box box-primary">
   <div class="box-body">
   <a href="/kompre" type="button" class="btn btn-primary">Kompre</a> 
@@ -162,8 +158,12 @@
   <a href="/posttest" type="button" class="btn btn-primary">Post Test</a>
     
   </div>
-</div>
-</div>
+</div></td>
+      
+</tr>
+    @endforeach
+  </tbody>
+
 
 <div class="container" style="margin-left:250px;">
 <div class="box box-primary">

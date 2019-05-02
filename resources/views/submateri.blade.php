@@ -140,7 +140,7 @@
   <table class="table table-dark"  style="margin-top:10px; margin-left:250px; width:70%;">
   <thead>
     <tr>
-      <th scope="col">Materi</th>
+      <th scope="col">Submateri</th>
       <th scope="col">Referensi</th>
     </tr>
   </thead>

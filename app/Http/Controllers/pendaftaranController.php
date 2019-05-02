@@ -10,17 +10,28 @@ use Carbon\Carbon;
 class pendaftaranController extends Controller
 {
     public function index($id){
+        $user =  Auth::user()['id'];
+
+        if($user==null){
+
+        return redirect('/login');
+        
+        }else{
+        $idprogres = DB::table('progres')->orderBy('id','desc')->first();
         $mytime = Carbon::now();
-        DB::table('logs')->insert(['started_time'=> $mytime->toDateTimeString(), 'activity'=>'Mulai Pretest', 'user_id'=> Auth::user()->id]);
+        DB::table('logs')->insert(['started_time'=> $mytime->toDateTimeString(), 'activity'=>'Mulai Pretest', 'user_id'=>$user]);
         DB::table('progres')
-        ->where( 'id_materidetail', "")
-        ->update(['id_materi'=>$id, 'id_materidetail'=>'pretest']);
+        ->where('id', $idprogres->id)
+        ->where('user_id', $user)
+        ->update(['id_materi'=>$id, 'id_materidetail'=>'100']);
 
         return redirect('pretest');
         
+        }
     }
 
     public function pretest(){
+
         return view('pretest');
     }
 

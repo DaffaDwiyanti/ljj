@@ -16,11 +16,24 @@ class WelcomeController extends Controller
     }
     public function join($id){
 //buat join kelas/ liat kelas
-        $materis = DB::table('materis')->where('id_kelas', $id)->get();
-        $mytime = Carbon::now();
-        DB::table('logs')->insert(['started_time'=> $mytime->toDateTimeString(), 'activity'=>"Lihat Kelas $id", 'user_id'=> Auth::user()->id]);
-        DB::table('progres')->insert(['id_kelas'=>"$id", 'user_id'=> Auth::user()->id]);
+$user = Auth::user()['id'];
 
-        return view('joink',compact('materis'));
+if($user==null){
+
+    $materis = DB::table('materis')->where('id_kelas', $id)->get();
+    $mytime = Carbon::now();
+    DB::table('logs')->insert(['started_time'=> $mytime->toDateTimeString(), 'activity'=>"Lihat Kelas $id", 'user_id'=> ""]);
+    DB::table('progres')->insert(['id_kelas'=>"$id", 'user_id'=> ""]);
+
+    return view('joink',compact('materis'));
+}else{
+
+    $materis = DB::table('materis')->where('id_kelas', $id)->get();
+    $mytime = Carbon::now();
+    DB::table('logs')->insert(['started_time'=> $mytime->toDateTimeString(), 'activity'=>"Lihat Kelas $id", 'user_id'=> $user]);
+    DB::table('progres')->insert(['id_kelas'=>"$id", 'user_id'=> $user]);
+
+    return view('joink',compact('materis'));
+}
     }
 }
